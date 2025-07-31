@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import { JWT } from 'next-auth/jwt';
-import { UserRole } from '@prisma/client';
+import { USER_ROLES } from './schemas';
 import { Account, User, Session } from 'next-auth';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 
@@ -58,7 +58,7 @@ export const authOptions: any = {
       }
 
       if (token.role && session.user) {
-        session.user.role = token.role as UserRole;
+        session.user.role = token.role as keyof typeof USER_ROLES;
       }
 
       if (session.user) {

@@ -1,0 +1,10 @@
+{
+  "prisma.fileWatcher": true,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "files.associations": {
+    "*.template": "plaintext"
+  },
+  "files.exclude": {
+    "**/templates/**": true
+  }
+}

@@ -1,10 +1,15 @@
 import * as z from "zod";
-import { UserRole } from "@prisma/client";
+
+// Define user roles as constants for compatibility with both PostgreSQL enum and SQLite string
+export const USER_ROLES = {
+  ADMIN: "ADMIN",
+  USER: "USER"
+} as const;
 
 export const SettingsSchema = z.object({
   name: z.optional(z.string()),
   isTwoFactorEnabled: z.optional(z.boolean()),
-  role: z.enum([UserRole.ADMIN, UserRole.USER]),
+  role: z.enum([USER_ROLES.ADMIN, USER_ROLES.USER]),
   email: z.optional(z.string().email()),
   password: z.optional(z.string().min(6)),
   newPassword: z.optional(z.string().min(6)),

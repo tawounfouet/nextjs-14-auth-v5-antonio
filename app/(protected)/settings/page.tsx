@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { SettingsSchema } from '@/schemas';
+import { SettingsSchema, USER_ROLES } from '@/schemas';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { settings } from '@/actions/settings';
@@ -31,7 +31,6 @@ import { Input } from '@/components/ui/input';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
-import { UserRole } from '@prisma/client';
 
 const SettingsPage = () => {
   const user = useCurrentUser();
@@ -171,8 +170,8 @@ const SettingsPage = () => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value={UserRole.ADMIN}>Admin</SelectItem>
-                        <SelectItem value={UserRole.USER}>User</SelectItem>
+                        <SelectItem value={USER_ROLES.ADMIN}>Admin</SelectItem>
+                        <SelectItem value={USER_ROLES.USER}>User</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />

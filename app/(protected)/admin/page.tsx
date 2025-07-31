@@ -5,7 +5,7 @@ import { RoleGate } from "@/components/auth/role-gate";
 import { FormSuccess } from "@/components/form-success";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { UserRole } from "@prisma/client";
+import { USER_ROLES } from "@/schemas";
 import { toast } from "sonner";
 
 const AdminPage = () => {
@@ -41,7 +41,7 @@ const AdminPage = () => {
         </p>
       </CardHeader>
       <CardContent className="space-y-4">
-        <RoleGate allowedRole={UserRole.ADMIN}>
+        <RoleGate allowedRole={USER_ROLES.ADMIN}>
           <FormSuccess
             message="You are allowed to see this content!"
           />
